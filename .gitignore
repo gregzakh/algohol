@@ -1,0 +1,6 @@
+*
+!.gitignore
+!license
+!readme.txt
+!*.ps1
+!*/
