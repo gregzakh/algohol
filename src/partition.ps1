@@ -11,7 +11,7 @@ function partition_r([UInt16]$n, [UInt16]$x = 1) {
         -join[Enumerable]::Reverse([Object[]](,$i + $p))
       }
     }) | Sort-Object -Descending
-	}
+  }
 }
 
 # back order
