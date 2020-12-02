@@ -7,7 +7,7 @@ Add-Type -AssemblyName System.Windows.Forms
 
 $frmMain = New-Object Form -Property @{
   BackgroundImage = ($bmp = [Bitmap]::new(320, 320))
-  FormBorderStyle = [formBorderStyle]::FixedSingle
+  FormBorderStyle = [FormBorderStyle]::FixedSingle
   Icon = ($ico = [Icon]::ExtractAssociatedIcon("$PSHome\pwsh.exe"))
   MaximizeBox = $false
   Size = [Size]::new(316, 339)
