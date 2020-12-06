@@ -1,4 +1,5 @@
 # Fisher-Yates shuffle
+function knuth([Object[]]$a) {Get-Random -InputObject $a -Count $a.Length}
 function sattolo([Object[]]$a) {
   end {
     for ($i = 0; $i -lt $a.Length; $i++) {
