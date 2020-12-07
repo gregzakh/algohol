@@ -33,7 +33,7 @@ function draw_triangle {
 
 function draw_fractal {
   end {
-    if ($img) { $img.Dispose() } # releasing previous image
+    if ($bmp) { $bmp.Dispose() } # releasing previous image
     $script:bmp = [Bitmap]::new($pbImage.ClientSize.Width, $pbImage.ClientSize.Height)
 
     $g = [Graphics]::FromImage($bmp)
@@ -48,7 +48,6 @@ function draw_fractal {
     draw_triangle $g $nudLvls.Value $points[0] $points[1] $points[2]
     $g.Dispose()
     # showing image
-    $script:img = $pbImage.Image
     $pbImage.Image = $bmp
   }
 }
@@ -67,13 +66,7 @@ $nudLvls = New-Object NumericUpDown -Property @{
   TextAlign = [HorizontalAlignment]::Right
   Value = 3
 }
-
-$btnDraw = New-Object Button -Property @{
-  Location = [Point]::new(91, 12)
-  Size = [Size]::new(75, 23)
-  Text = 'Draw'
-}
-$btnDraw.Add_Click({ draw_fractal })
+$nudLvls.Add_ValueChanged({ draw_fractal })
 
 $pbImage = New-Object PictureBox -Property @{
   Anchor = [AnchorStyles]'Top, Bottom, Left, Right'
@@ -90,12 +83,11 @@ $frmMain = New-Object Form -Property @{
   StartPosition = [FormStartPosition]::CenterScreen
   Text = 'Sierpinski Triangle'
 }
-$frmMain.Controls.AddRange(@($lblLvls, $nudLvls, $btnDraw, $pbImage))
+$frmMain.Controls.AddRange(@($lblLvls, $nudLvls, $pbImage))
 $frmMain.Add_Load({ draw_fractal })
 $frmMain.Add_Resize({ draw_fractal })
 $frmMain.Add_FormClosing({
   if ($bmp) { $bmp.Dispose() }
-  if ($img) { $img.Dispose() }
   if ($ico) { $ico.Dispose() }
   $this.Controls.ForEach{ $_.Dispose() }
 })
