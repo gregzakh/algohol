@@ -1,4 +1,3 @@
-#requires -version 7
 function caeser_cipher {
   param(
     [Parameter(Mandatory, Position=0)]
