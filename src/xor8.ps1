@@ -1,4 +1,3 @@
-#requires -version 7
 function xor8([String]$s) {
   end {
     [Byte]$res = 0
