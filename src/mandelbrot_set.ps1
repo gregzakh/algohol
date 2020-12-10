@@ -1,4 +1,3 @@
-#requires -version 7
 using namespace System.Drawing
 using namespace System.Numerics
 using namespace System.Windows.Forms
