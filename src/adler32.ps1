@@ -1,4 +1,3 @@
-#requires -version 7
 function adler32([String]$s) {
   end {
     $a, $b = [UInt32[]](1, 0)
