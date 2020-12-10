@@ -1,4 +1,3 @@
-#requires -version 7
 function hanoi {
   param(
     [Parameter(Mandatory, Position=0)][Byte]$n,
