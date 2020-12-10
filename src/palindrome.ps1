@@ -1,4 +1,3 @@
-#requires -version 7
 # palindrome test
 # .e.g.: Madam, I'm Adam!
 #        Sum summus mus
