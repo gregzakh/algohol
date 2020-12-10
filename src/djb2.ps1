@@ -1,4 +1,3 @@
-#requires -version 7
 function djb2([String]$s) {
   end {
     [UInt64]$res = 5381
