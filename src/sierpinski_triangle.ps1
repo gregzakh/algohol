@@ -1,4 +1,3 @@
-#requires -version 7
 using namespace System.Drawing
 using namespace System.Windows.Forms
 using namespace System.Drawing.Drawing2D
