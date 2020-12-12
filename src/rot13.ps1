@@ -1,4 +1,10 @@
-function rot13([String]$s) {
+function rot13 {
+  param(
+    [Parameter(Mandatory, ValueFromPipeline)]
+    [ValidateNotNullOrEmpty()]
+    [String]$s
+  )
+
   end {
     -join[Char[]](0,64,78,90,65,77,91,96,110,122,97,109,123,255 |
       Group-Object {[Math]::Floor($script:i++ / 2)}).ForEach{
